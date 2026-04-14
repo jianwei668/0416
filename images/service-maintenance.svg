@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f0fa"/>
+      <stop offset="100%" stop-color="#d4e5f5"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg)"/>
+  <!-- Equipment cabinet -->
+  <rect x="200" y="80" width="200" height="280" fill="#d0dce8" stroke="#0d5ba6" stroke-width="2" rx="6"/>
+  <!-- Vents/filters -->
+  <rect x="220" y="100" width="160" height="40" fill="#0d5ba6" opacity="0.15" rx="3"/>
+  <line x1="240" y1="105" x2="240" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="260" y1="105" x2="260" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="280" y1="105" x2="280" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="300" y1="105" x2="300" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="320" y1="105" x2="320" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="340" y1="105" x2="340" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="360" y1="105" x2="360" y2="135" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <!-- Control panel -->
+  <rect x="230" y="160" width="140" height="80" fill="#1a3a5c" rx="4"/>
+  <circle cx="265" cy="190" r="8" fill="#22c55e" opacity="0.7"/>
+  <circle cx="300" cy="190" r="8" fill="#4da8e8" opacity="0.6"/>
+  <circle cx="335" cy="190" r="8" fill="#C4975A" opacity="0.5"/>
+  <rect x="250" y="210" width="100" height="15" fill="#0d5ba6" rx="2"/>
+  <text x="300" y="222" text-anchor="middle" fill="#7ec8f0" font-size="8" font-family="sans-serif">SYSTEM OK</text>
+  <!-- Wrench icon -->
+  <rect x="240" y="260" width="120" height="80" fill="#e8eff7" rx="3"/>
+  <path d="M280,280 L320,320 M320,280 L280,320" stroke="#0d5ba6" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <!-- Pipes -->
+  <rect x="150" y="180" width="50" height="12" fill="#8B9BB0" rx="3"/>
+  <rect x="400" y="180" width="50" height="12" fill="#8B9BB0" rx="3"/>
+  <rect x="150" y="240" width="50" height="12" fill="#8B9BB0" rx="3"/>
+  <rect x="400" y="240" width="50" height="12" fill="#8B9BB0" rx="3"/>
+  <!-- Label -->
+  <text x="300" y="410" text-anchor="middle" fill="#0d5ba6" font-size="16" font-weight="bold" font-family="sans-serif" opacity="0.6">设备维护</text>
+</svg>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasmanian Gold Pty Ltd | Modern Mining & Sustainability</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0F172A',  // Mineral Navy
+                            gold: '#F37321',  // Brand Orange (Replaced Gold)
+                            light: '#F9FAFB', // Pearl White
+                            gray: '#F3F4F6',  // Light Gray
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans Jakarta Sans', 'sans-serif'], 
+                        serif: ['Cinzel', 'serif'],   
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations & Premium Glass Utilities */
+        .hover-lift { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255,255,255,0.8) inset; 
+        }
+
+        .glass-card {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background:
+                linear-gradient(140deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18) 40%, rgba(255, 255, 255, 0.08) 100%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow:
+                0 24px 55px -22px rgba(15, 23, 42, 0.28),
+                0 12px 24px rgba(255, 255, 255, 0.16) inset,
+                0 -10px 20px rgba(148, 163, 184, 0.08) inset;
+            backdrop-filter: blur(26px) saturate(185%);
+            -webkit-backdrop-filter: blur(26px) saturate(185%);
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0.04));
+            opacity: 0.95;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            top: -24%;
+            left: -12%;
+            width: 72%;
+            height: 52%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.28) 42%, transparent 72%);
+            opacity: 0.75;
+            transform: rotate(-10deg);
+            filter: blur(12px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card-dark {
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06) 45%, rgba(255, 255, 255, 0.02) 100%),
+                linear-gradient(180deg, rgba(15, 23, 42, 0.42), rgba(15, 23, 42, 0.2));
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow:
+                0 30px 60px -18px rgba(2, 6, 23, 0.65),
+                0 16px 32px rgba(255, 255, 255, 0.08) inset,
+                0 -12px 24px rgba(15, 23, 42, 0.2) inset;
+        }
+
+        .glass-card-dark::before {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.02));
+        }
+
+        .glass-card-dark::after {
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.12) 40%, transparent 72%);
+            opacity: 0.55;
+        }
+        
+        /* Smooth glowing effect for gold elements */
+        .glow-gold:hover {
+            box-shadow: 0 0 30px rgba(243, 115, 33, 0.4);
+        }
+
+        .logo-shape {
+            height: 40px; 
+            width: auto;
+            color: #F37321; 
+        }
+        
+        /* Hide default FAQ triangle */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* ========== Scroll-Reveal Animations ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered children animation */
+        .stagger-children > * { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.15s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.35s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.45s; }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.55s; }
+        .stagger-children.visible > *:nth-child(7) { transition-delay: 0.65s; }
+        .stagger-children.visible > * { opacity: 0; transform: translateY(40px); }
+        .stagger-children.visible > * { opacity: 1; transform: translateY(0); }
+
+        /* Scroll progress bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F37321, #FF9547, #F37321);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(243, 115, 33, 0.6);
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Navbar shrink */
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important;
+        }
+        nav.scrolled .nav-inner { height: 64px !important; }
+
+        /* Hero parallax layer */
+        .parallax-bg {
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        /* Animated gradient underline on section headings */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F37321, #FF9547);
+            border-radius: 999px;
+            transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1), left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .animated-underline.visible::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        /* Mobile menu overlay */
+        #mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        #mobile-menu.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #mobile-menu a {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 0.15em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+        }
+        #mobile-menu.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
+        #mobile-menu.open a:nth-child(2) { transition-delay: 0.1s; }
+        #mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
+        #mobile-menu.open a:nth-child(4) { transition-delay: 0.2s; }
+        #mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
+        #mobile-menu.open a:nth-child(6) { transition-delay: 0.3s; }
+        #mobile-menu.open a:nth-child(7) { transition-delay: 0.35s; }
+        #mobile-menu a:hover { color: #F37321; }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle linear infinite;
+            opacity: 0;
+        }
+        @keyframes float-particle {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-120vh) scale(1); }
+        }
+
+        /* Hero text entrance */
+        .hero-enter {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: hero-fade-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-enter:nth-child(1) { animation-delay: 0.1s; }
+        .hero-enter:nth-child(2) { animation-delay: 0.25s; }
+        .hero-enter:nth-child(3) { animation-delay: 0.4s; }
+        .hero-enter:nth-child(4) { animation-delay: 0.55s; }
+        .hero-enter:nth-child(5) { animation-delay: 0.7s; }
+        .hero-enter:nth-child(6) { animation-delay: 0.85s; }
+        @keyframes hero-fade-in {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Pulse ring for stats */
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(243, 115, 33, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(243, 115, 33, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(243, 115, 33, 0); }
+        }
+        .pulse-ring { animation: pulse-ring 2.5s infinite; }
+
+        /* Section wave divider */
+        .wave-divider {
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.1,84.88,118.84,75.16,179.22,65.42,236.85,56.14,294.53,47.12,321.39,56.44Z' fill='%23F8FAFC'/%3E%3C/svg%3E") no-repeat bottom center;
+            background-size: 100% 80px;
+        }
+
+        /* Gradient text shimmer */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .text-shimmer {
+            background: linear-gradient(90deg, #F37321 0%, #FF9547 25%, #FFD700 50%, #FF9547 75%, #F37321 100%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* Premium card hover glow */
+        .premium-glow { 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .premium-glow:hover {
+            box-shadow: 0 0 0 1px rgba(243, 115, 33, 0.1), 0 20px 40px -12px rgba(243, 115, 33, 0.15);
+        }
+
+        /* Icon container gradient border */
+        .icon-premium {
+            background: linear-gradient(135deg, #FFF7ED, #FFFFFF, #FFF1E6);
+            border: 1px solid rgba(243, 115, 33, 0.12);
+            box-shadow: 0 4px 15px rgba(243, 115, 33, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        /* Smooth section transition gradient */
+        .section-fade-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(248,250,252,1), transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ========== Additional Visual Polish ========== */
+
+        /* Subtle noise texture overlay for depth */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.018;
+            pointer-events: none;
+            z-index: 9998;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23000'/%3E%3C/svg%3E");
+            background-size: 4px 4px;
+        }
+
+        /* Smooth cursor for interactive elements */
+        a, button, summary, .hover-lift { cursor: pointer; }
+
+        /* Enhanced nav link magnetic hover - current section indicator */
+        nav a.active-link {
+            color: #F37321 !important;
+        }
+
+        /* Focus-visible rings for accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid #F37321;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Smooth image loading */
+        img {
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        img[loading] {
+            opacity: 0;
+        }
+
+        /* Enhanced team card photo ring */
+        .team-photo-ring {
+            position: relative;
+        }
+        .team-photo-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #F37321, #FF9547, #FFD700, #FF9547, #F37321);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        .group:hover .team-photo-ring::before {
+            opacity: 0.6;
+        }
+
+        /* Contact form input glow focus */
+        .input-glow:focus {
+            box-shadow: 0 0 0 3px rgba(243, 115, 33, 0.15), 0 0 20px rgba(243, 115, 33, 0.08);
+        }
+
+        /* FAQ smooth open/close */
+        details .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+        details[open] .faq-body {
+            max-height: 500px;
+        }
+
+        /* News card hover accent line */
+        .news-card {
+            border-left: 3px solid transparent;
+            transition: border-color 0.3s ease, transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .news-card:hover {
+            border-left-color: #F37321;
+        }
+
+        /* Smooth gradient border for CTA button */
+        .cta-premium {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        .cta-premium:hover::before {
+            left: 100%;
+        }
+
+        /* Value card number badge */
+        .value-number {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F37321, #D25E12);
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(243, 115, 33, 0.35);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+        }
+        .stagger-children.visible .value-number {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Decorative dot pattern */
+        .dot-pattern {
+            background-image: radial-gradient(circle, rgba(243, 115, 33, 0.06) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Smooth link underline animation for footer */
+        .footer-link {
+            position: relative;
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #F37321;
+            transition: width 0.3s ease;
+        }
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Loading skeleton shimmer */
+        @keyframes skeleton-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Smooth section reveal with slight zoom */
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.97) translateY(20px);
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-zoom.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-blue font-sans antialiased selection:bg-brand-gold selection:text-white relative overflow-x-hidden">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu">
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#values" onclick="closeMobileMenu()">Community</a>
+        <a href="#history" onclick="closeMobileMenu()">History</a>
+        <a href="#news" onclick="closeMobileMenu()">News</a>
+        <a href="#team" onclick="closeMobileMenu()">Leadership</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#contact" onclick="closeMobileMenu()" class="mt-4 px-8 py-3 border border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-white transition-all">Contact</a>
+        <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-gold transition-colors" aria-label="Close menu">
+            <i class="ph ph-x"></i>
+        </button>
+    </div>
+
+    <nav class="fixed w-full bg-white backdrop-blur-xl border-b border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] z-50 transition-all duration-300">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="flex justify-between h-20 items-center nav-inner transition-all duration-300">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="logo.png" alt="Tasmanian Gold" class="h-10 w-auto drop-shadow-md">
+                    <span style="font-family: 'Cinzel', serif;" class="font-bold text-xl xl:text-2xl tracking-widest mt-1 drop-shadow-sm">TASMANIAN GOLD PTY LTD</span>
+                </div>
+                <div class="hidden lg:flex lg:space-x-6 xl:space-x-10 font-serif font-medium text-lg xl:text-xl tracking-wider items-center whitespace-nowrap">
+                    <a href="#about" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">About</a>
+                    <a href="#values" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">Community</a>
+                    <a href="#history" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">History</a>
+                    <a href="#news" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">News</a>
+                    <a href="#team" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">Leadership</a>
+                    <a href="#faq" class="relative hover:text-brand-gold transition-colors after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full border border-brand-gold/70 bg-brand-gold/10 text-brand-gold shadow-[0_8px_20px_rgba(243,115,33,0.16)] hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all duration-300">Contact</a>
+                </div>
+                <!-- Mobile Hamburger -->
+                <button onclick="openMobileMenu()" class="lg:hidden text-brand-blue text-3xl hover:text-brand-gold transition-colors" aria-label="Open menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden relative min-h-[85vh] flex items-center wave-divider">
+        <!-- Company mine background -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat parallax-bg" style="background-image: url('image_a1b39a.png');"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-[rgba(15,23,42,0.88)] via-[rgba(15,23,42,0.72)] to-[rgba(15,23,42,0.45)]"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-t from-[rgba(15,23,42,0.55)] via-transparent to-[rgba(15,23,42,0.25)]"></div>
+
+        <!-- Floating particles -->
+        <div class="absolute inset-0 z-[1] overflow-hidden" id="hero-particles"></div>
+
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-[820px] lg:ml-[10%] xl:ml-[13%] pt-4 lg:pt-8">
+                <div class="hero-enter inline-flex items-center border border-white/20 bg-white/5 backdrop-blur-sm px-5 md:px-7 py-2.5 text-brand-gold font-semibold tracking-[0.22em] text-xs md:text-sm uppercase mb-7 lg:mb-9">
+                    A Century of Heritage · A New Era of Excellence
+                </div>
+
+                <h1 class="font-serif leading-[1.08] tracking-[-0.01em] text-white">
+                    <span class="hero-enter block text-[3rem] sm:text-[3.8rem] md:text-[4.5rem] lg:text-[5.5rem] font-medium">Unearthing the</span>
+                    <span class="hero-enter block text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-[#FF9547] to-brand-goldrent bg-clip-text bg-gradient-to-r from-brand-gold via-[#FF9547] to-brand-gold mt-1">Modern Future</span>
+                    <span class="hero-enter block text-[3rem] sm:text-[3.8rem] md:text-[4.5rem] lg:text-[5.5rem] font-medium mt-1">of Mining</span>
+                </h1>
+
+                <div class="hero-enter w-20 h-[2px] bg-gradient-to-r from-brand-gold to-[#FF9547] mt-8 lg:mt-10 rounded-full shadow-[0_0_10px_rgba(243,115,33,0.5)]"></div>
+
+                <p class="hero-enter mt-5 lg:mt-7 text-lg md:text-xl text-gray-300/90 leading-[1.85] max-w-[580px] font-light">
+                    Tasmanian Gold is committed to reviving the glory of a century-old mine through environmentally sustainable and modern high-tech methods. We prioritize safety, blending historical heritage with innovative technology.
+                </p>
+
+                <div class="hero-enter mt-8 lg:mt-10">
+                    <a href="#history" class="cta-premium inline-flex items-center gap-3 bg-brand-gold text-white px-10 md:px-12 py-4 md:py-5 rounded-none hover:bg-[#D25E12] transition-all duration-300 font-bold text-base md:text-lg hover:-translate-y-1 shadow-[0_12px_28px_rgba(243,115,33,0.35)] hover:shadow-[0_18px_36px_rgba(243,115,33,0.45)] glow-gold uppercase tracking-wider">
+                        Explore Our <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Stats Bar -->
+    <section class="relative z-20 -mt-12 lg:-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] reveal-scale">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
+                    <div class="group">
+                        <div class="font-serif font-bold text-3xl md:text-4xl text-brand-gold mb-2 drop-shadow-sm" data-counter="100">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">Years Heritage</div>
+                    </div>
+                    <div class="group">
+                        <div class="font-serif font-bold text-3xl md:text-4xl text-brand-gold mb-2 drop-shadow-sm" data-counter="250">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">Local Jobs</div>
+                    </div>
+                    <div class="group">
+                        <div class="font-serif font-bold text-3xl md:text-4xl text-brand-gold mb-2 drop-shadow-sm" data-counter="98">0%</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">Safety Record</div>
+                    </div>
+                    <div class="group">
+                        <div class="font-serif font-bold text-3xl md:text-4xl text-brand-gold mb-2 drop-shadow-sm" data-counter="15">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">Expert Team</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="py-20 pt-28 relative bg-[#F8FAFC] overflow-hidden dot-pattern">
+        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] rounded-full bg-brand-blue/5 blur-3xl z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl font-bold mb-4 tracking-wide animated-underline">Our Values & Community</h2>
+                <div class="w-16 h-1 rounded-full bg-brand-gold mx-auto shadow-[0_0_10px_rgba(243,115,33,0.5)]"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+                <div class="glass-card p-10 rounded-3xl hover-lift premium-glow text-center group relative">
+                    <div class="w-20 h-20 mx-auto icon-premium rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i class="ph-duotone ph-buildings text-5xl text-brand-gold drop-shadow-md"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl mb-4">We Support Local</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our operations will always put supporting local first wherever possible. We will work closely with local organizations to ensure we enhance the economic and social vibrancy of the region.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl hover-lift premium-glow text-center group relative">
+                    <div class="w-20 h-20 mx-auto icon-premium rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i class="ph-duotone ph-users-three text-5xl text-brand-gold drop-shadow-md"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl mb-4">We Put People First</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our family-friendly working culture brings together diverse ideas, strengths, interests, and cultural backgrounds to drive our business forward and succeed.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl hover-lift premium-glow text-center group relative">
+                    <div class="w-20 h-20 mx-auto icon-premium rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                        <i class="ph-duotone ph-handshake text-5xl text-brand-gold drop-shadow-md"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl mb-4">We Listen to Our Community</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We take the time to get to know the people and groups that make up our local communities and ensure their voices and feedback are genuinely heard.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="py-20 lg:py-32 relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                
+                <div class="w-full lg:w-1/2 order-2 lg:order-1 reveal-left">
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6 text-brand-blue leading-tight animated-underline">
+                        A Legacy of <span class="text-brand-gold drop-shadow-sm">Excellence</span> and<br>Innovation
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Tasmania has a rich history of gold production dating back to the late 19th century. As the new custodians, Tasmanian Gold brings a fresh perspective combined with deep industry expertise.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-10 text-lg leading-relaxed">
+                        Our track record of improving mines across Australia is built on a foundation of operational excellence and a deep respect for the environments in which we operate.
+                    </p>
+                    
+                    <ul class="space-y-5">
+                        <li class="flex items-center gap-4 bg-[#F8FAFC]/50 p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="w-3 h-3 rounded-full bg-brand-gold shrink-0 shadow-[0_0_8px_rgba(243,115,33,0.6)]"></span>
+                            <span class="text-gray-700 text-lg font-medium">World-class safety protocols</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-[#F8FAFC]/50 p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="w-3 h-3 rounded-full bg-brand-gold shrink-0 shadow-[0_0_8px_rgba(243,115,33,0.6)]"></span>
+                            <span class="text-gray-700 text-lg font-medium">Community-driven decision making</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-[#F8FAFC]/50 p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="w-3 h-3 rounded-full bg-brand-gold shrink-0 shadow-[0_0_8px_rgba(243,115,33,0.6)]"></span>
+                            <span class="text-gray-700 text-lg font-medium">Long-term value creation for Tasmania</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 relative mt-8 lg:mt-0 reveal-right">
+                    <div class="glass-card p-3 md:p-5 rounded-[2.5rem] relative z-0">
+                        <img src="image_a1b39a.png" 
+                             alt="Modern Mining Operations" 
+                             class="w-full h-auto object-cover rounded-[1.8rem] aspect-[4/3] md:aspect-square lg:aspect-[4/3] shadow-inner">
+                    </div>
+
+                    <div class="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-gradient-to-br from-brand-gold/95 to-[#D25E12]/95 backdrop-blur-md border border-white/30 text-white p-6 md:px-10 md:py-8 rounded-3xl shadow-[0_25px_50px_-12px_rgba(243,115,33,0.5)] z-10 hover:scale-105 hover:-translate-y-2 transition-all duration-500 pulse-ring reveal-scale">
+                        <div class="absolute inset-0 bg-white/10 rounded-3xl"></div> 
+                        <div class="relative z-10">
+                            <div class="font-serif font-bold text-4xl md:text-6xl mb-2 drop-shadow-md" data-counter="100">0+</div>
+                            <div class="text-[10px] md:text-sm font-bold tracking-[0.25em] uppercase text-white/90">Years of History</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-24 relative bg-brand-blue overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(243,115,33,0.08),transparent_70%)]"></div>
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <p class="text-brand-gold font-bold text-sm tracking-[0.3em] uppercase mb-4">Why Choose Us</p>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">Setting the Gold Standard</h2>
+                <div class="w-16 h-1 rounded-full bg-brand-gold mx-auto shadow-[0_0_15px_rgba(243,115,33,0.8)]"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all duration-500">
+                        <i class="ph-duotone ph-shield-check text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white mb-3">Safety First</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Industry-leading safety protocols with 98% clean safety record across all operations.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all duration-500">
+                        <i class="ph-duotone ph-leaf text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white mb-3">Eco-Friendly</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sustainable extraction methods that exceed environmental protection standards.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all duration-500">
+                        <i class="ph-duotone ph-cpu text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white mb-3">Modern Tech</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Cutting-edge geological exploration and processing technologies.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all duration-500">
+                        <i class="ph-duotone ph-heart text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white mb-3">Community Focus</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Deep commitment to local employment, engagement, and regional prosperity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    </section>
+
+    <section id="news" class="py-20 relative bg-[#F8FAFC] overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="reveal">
+                <h2 class="font-serif text-4xl font-bold mb-4 tracking-wide animated-underline">Latest Announcements</h2>
+                <div class="w-16 h-1 rounded-full bg-brand-gold mb-12 shadow-[0_0_10px_rgba(243,115,33,0.5)]"></div>
+            </div>
+            
+            <div class="space-y-4 stagger-children">
+                <a href="#" class="news-card glass-card flex flex-col md:flex-row items-start md:items-center p-6 group transition-all duration-500 rounded-2xl hover:-translate-y-1">
+                    <div class="text-brand-gold w-48 md:w-56 shrink-0 font-bold font-serif text-2xl drop-shadow-sm uppercase tracking-wide">MAY 12, 2024</div>
+                    <div class="flex-grow mt-2 md:mt-0">
+                        <h3 class="text-xl font-semibold group-hover:text-brand-blue transition-colors">Tasmanian Gold Announces Completion of Phase 1 Environmental Impact Assessment</h3>
+                    </div>
+                </a>
+                <a href="#" class="news-card glass-card flex flex-col md:flex-row items-start md:items-center p-6 group transition-all duration-500 rounded-2xl hover:-translate-y-1">
+                    <div class="text-brand-gold w-48 md:w-56 shrink-0 font-bold font-serif text-2xl drop-shadow-sm uppercase tracking-wide">APRIL 08, 2024</div>
+                    <div class="flex-grow mt-2 md:mt-0">
+                        <h3 class="text-xl font-semibold group-hover:text-brand-blue transition-colors">Q1 2024 Drilling Progress Report and Core Data Release</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="mt-12 text-center reveal">
+                <button class="bg-white border border-gray-200 text-brand-blue px-10 py-4 rounded-2xl hover:bg-brand-blue hover:text-white hover:border-brand-blue shadow-[0_8px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_30px_rgba(15,23,42,0.2)] transition-all duration-300 text-base font-bold">
+                    View All Announcements
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-24 relative bg-[#F8FAFC] overflow-hidden">
+        <div class="absolute right-[-5%] top-[-10%] w-[40vw] h-[40vw] rounded-full bg-brand-gold/15 blur-[100px] z-0 pointer-events-none"></div>
+        <div class="absolute left-[-5%] bottom-[-10%] w-[30vw] h-[30vw] rounded-full bg-brand-blue/10 blur-[100px] z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl font-bold mb-4 tracking-wide animated-underline">Leadership Team</h2>
+                <div class="w-16 h-1 rounded-full bg-brand-gold mx-auto shadow-[0_0_10px_rgba(243,115,33,0.5)]"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">Composed of seasoned experts with decades of international mining experience, geological exploration, and financial management backgrounds.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 stagger-children">
+                
+                <div class="glass-card relative p-10 rounded-[2.5rem] hover-lift text-center group">
+                    <div class="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-40 h-40 mx-auto mb-8 z-10 team-photo-ring">
+                        <div class="absolute inset-0 bg-brand-gold rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Jane Smith" class="relative w-40 h-40 rounded-full object-cover border-[3px] border-white shadow-xl">
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="font-serif font-bold text-2xl mb-2">Jane Smith</h3>
+                        <p class="text-brand-gold font-bold text-sm mb-5 tracking-widest uppercase bg-brand-gold/10 inline-block px-4 py-1.5 rounded-full">Chief Geologist</p>
+                        <p class="text-gray-600 leading-relaxed text-base font-medium">An international authority on ore deposit research, responsible for building the exploration models for Tasmania's deep veins.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card relative p-10 rounded-[2.5rem] hover-lift text-center md:-translate-y-6 group">
+                    <div class="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-40 h-40 mx-auto mb-8 z-10 team-photo-ring">
+                        <div class="absolute inset-0 bg-brand-gold rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="John Doe" class="relative w-40 h-40 rounded-full object-cover border-[3px] border-white shadow-xl">
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="font-serif font-bold text-2xl mb-2">John Doe</h3>
+                        <p class="text-brand-gold font-bold text-sm mb-5 tracking-widest uppercase bg-brand-gold/10 inline-block px-4 py-1.5 rounded-full">CEO</p>
+                        <p class="text-gray-600 leading-relaxed text-base font-medium">Brings 25 years of global precious metals development experience, successfully leading the commissioning of multiple large-scale gold mines.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card relative p-10 rounded-[2.5rem] hover-lift text-center group">
+                    <div class="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-40 h-40 mx-auto mb-8 z-10 team-photo-ring">
+                        <div class="absolute inset-0 bg-brand-gold rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop" alt="Robert Chen" class="relative w-40 h-40 rounded-full object-cover border-[3px] border-white shadow-xl">
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="font-serif font-bold text-2xl mb-2">Robert Chen</h3>
+                        <p class="text-brand-gold font-bold text-sm mb-5 tracking-widest uppercase bg-brand-gold/10 inline-block px-4 py-1.5 rounded-full">CFO</p>
+                        <p class="text-gray-600 leading-relaxed text-base font-medium">Focuses on mining M&A and capital market operations, ensuring financial robustness and maximizing shareholder value.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 relative bg-[#F8FAFC] overflow-hidden dot-pattern">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl font-bold mb-4 tracking-wide animated-underline">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 rounded-full bg-brand-gold mx-auto shadow-[0_0_10px_rgba(243,115,33,0.5)]"></div>
+            </div>
+            
+            <div class="columns-1 md:columns-2 gap-x-10 lg:gap-x-16 stagger-children">
+                
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">When will the mine reopen?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        We are liaising with Tasmanian Government departments on the requirements to reactivate underground mining and gold processing. On the current indicative schedule, it is expected that the mine may return to gold production by the end of 2026.
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">Why is the mine reopening?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        With increasing gold demand and advances in modern mining technology, redeveloping the mine offers strong economic viability. We will also utilize more environmentally friendly extraction methods.
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">Why did the mine shut down?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        [Insert historical context here, e.g., Operations were previously suspended due to technical limitations and market price fluctuations at the time.]
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">How will the community be involved?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        We will hold regular community hearings and information-sharing sessions to ensure local residents stay informed on project progress, establishing dedicated channels to collect your feedback and suggestions.
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">What jobs will be available?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        We will offer a wide variety of roles spanning geological exploration, heavy machinery operation, environmental monitoring, and logistics management, with a strong priority on hiring locally.
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">Will the rehabilitation of the wetlands be completed?</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        Yes, environmental protection is a core pillar of our restart plan. We pledge not only to complete the wetland rehabilitation but to implement ecological protection measures that exceed all previous standards.
+                    </div>
+                </details>
+
+                <details class="glass-card group rounded-2xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative z-20 break-inside-avoid inline-block w-full mb-8">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 md:p-8 text-xl hover:text-brand-gold transition-colors">
+                        <span class="pr-6">Feedback</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-brand-gold shrink-0"><i class="ph ph-caret-down text-2xl"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-6 md:p-8 pt-0 leading-relaxed border-t border-gray-50 mt-2 text-lg">
+                        We value your voice. You can reach out to us via the contact form at the bottom of this page or by emailing our dedicated community engagement inbox.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-gold/10 via-brand-blue to-brand-blue z-0 pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-brand-gold/20 blur-[100px] z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="reveal-left">
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6 tracking-wide drop-shadow-md">Join Us / Contact Us</h2>
+                    <div class="w-16 h-1 rounded-full bg-brand-gold mb-10 shadow-[0_0_15px_rgba(243,115,33,0.8)]"></div>
+                    <p class="text-gray-300 mb-12 leading-relaxed text-lg lg:text-xl font-light">
+                        We are looking for passionate professionals committed to safety and environmental protection to join our team. Whether you are an experienced geologist or a potential business partner, we look forward to hearing from you.
+                    </p>
+                    
+                    <div class="space-y-10">
+                        <div class="flex items-start gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/50 transition-all duration-300">
+                                <i class="ph-duotone ph-map-pin text-brand-gold text-2xl drop-shadow-[0_0_8px_rgba(243,115,33,0.8)]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2 tracking-wide">Head Office</h4>
+                                <p class="text-gray-400 text-base leading-relaxed font-light">123 Mining Avenue, Corporate District<br>Tasmania, Australia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/50 transition-all duration-300">
+                                <i class="ph-duotone ph-envelope-simple text-brand-gold text-2xl drop-shadow-[0_0_8px_rgba(243,115,33,0.8)]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2 tracking-wide">Email</h4>
+                                <p class="text-gray-400 text-base leading-relaxed font-light">Business: info@tasmaniangold.com.au<br>Careers: careers@tasmaniangold.com.au</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-dark p-10 lg:p-12 rounded-[2.5rem] relative reveal-right">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[2.5rem] pointer-events-none"></div>
+                    
+                    <h3 class="font-serif font-bold text-3xl mb-8 relative z-10">Send a Message</h3>
+                    <form class="space-y-6 relative z-10">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2 tracking-wide">Name</label>
+                            <input type="text" class="input-glow w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold focus:bg-black/40 transition-all duration-300 backdrop-blur-md shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2 tracking-wide">Email Address</label>
+                            <input type="email" class="input-glow w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold focus:bg-black/40 transition-all duration-300 backdrop-blur-md shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2 tracking-wide">Message</label>
+                            <textarea rows="4" class="input-glow w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold focus:bg-black/40 transition-all duration-300 backdrop-blur-md shadow-inner"></textarea>
+                        </div>
+                        <button type="button" class="cta-premium w-full bg-gradient-to-r from-brand-gold to-[#D25E12] text-white font-bold text-lg py-4 rounded-xl hover:shadow-[0_10px_25px_rgba(243,115,33,0.4)] hover:-translate-y-1 transition-all duration-300 glow-gold">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-blue border-t border-white/5 py-12 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="logo.png" alt="Tasmanian Gold" class="h-8 w-auto opacity-60">
+                    <span style="font-family:'Cinzel',serif;" class="text-white/50 font-bold text-lg tracking-widest">TASMANIAN GOLD</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-sm text-gray-500">
+                    <a href="#about" class="footer-link hover:text-brand-gold transition-colors">About</a>
+                    <a href="#values" class="footer-link hover:text-brand-gold transition-colors">Community</a>
+                    <a href="#history" class="footer-link hover:text-brand-gold transition-colors">History</a>
+                    <a href="#team" class="footer-link hover:text-brand-gold transition-colors">Leadership</a>
+                    <a href="#contact" class="footer-link hover:text-brand-gold transition-colors">Contact</a>
+                </div>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <p class="text-gray-600 text-xs font-light">&copy; 2026 Tasmanian Gold Pty Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-14 h-14 rounded-full bg-brand-gold text-white shadow-[0_8px_25px_rgba(243,115,33,0.4)] hover:shadow-[0_12px_35px_rgba(243,115,33,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center" aria-label="Back to top">
+        <i class="ph ph-arrow-up text-2xl"></i>
+    </button>
+
+    <script>
+    // ========== Scroll Reveal (IntersectionObserver) ==========
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .stagger-children, .animated-underline').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // ========== Scroll Progress Bar ==========
+    const progressBar = document.getElementById('scroll-progress');
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = scrollPercent + '%';
+    }
+
+    // ========== Navbar Shrink on Scroll ==========
+    const nav = document.querySelector('nav');
+    function updateNavbar() {
+        if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    }
+
+    // ========== Back-to-Top Visibility ==========
+    const backToTop = document.getElementById('back-to-top');
+    function updateBackToTop() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    }
+
+    // ========== Parallax Hero Background ==========
+    const parallaxBg = document.querySelector('.parallax-bg');
+    function updateParallax() {
+        if (parallaxBg && window.scrollY < window.innerHeight) {
+            parallaxBg.style.transform = 'translateY(' + (window.scrollY * 0.35) + 'px) scale(1.1)';
+        }
+    }
+
+    // Combined scroll handler
+    function onScroll() {
+        updateScrollProgress();
+        updateNavbar();
+        updateBackToTop();
+        updateParallax();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ========== Animated Counter ==========
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.counter, 10);
+                const originalText = el.textContent;
+                const suffix = originalText.replace(/[0-9]/g, '');
+                let current = 0;
+                const duration = 2000;
+                const step = Math.max(1, Math.floor(target / (duration / 16)));
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = current + suffix;
+                }, 16);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+    // ========== Hero Floating Particles ==========
+    (function createParticles() {
+        const container = document.getElementById('hero-particles');
+        if (!container) return;
+        const colors = ['rgba(243,115,33,0.3)', 'rgba(255,149,71,0.25)', 'rgba(255,255,255,0.12)'];
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 6 + 2;
+            p.style.cssText = 
+                'width:' + size + 'px;height:' + size + 'px;' +
+                'left:' + (Math.random() * 100) + '%;' +
+                'bottom:' + (-Math.random() * 20) + '%;' +
+                'background:' + colors[Math.floor(Math.random() * colors.length)] + ';' +
+                'animation-duration:' + (Math.random() * 8 + 6) + 's;' +
+                'animation-delay:' + (Math.random() * 5) + 's;';
+            container.appendChild(p);
+        }
+    })();
+
+    // ========== Mobile Menu ==========
+    function openMobileMenu() {
+        document.getElementById('mobile-menu').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // ========== Active Nav Link Highlight ==========
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.toggle('text-brand-gold', link.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+    sections.forEach(s => activeObserver.observe(s));
+    </script>
+
+</body>
+</html>

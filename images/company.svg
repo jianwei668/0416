@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f5fa"/>
+      <stop offset="100%" stop-color="#e4edf7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Building -->
+  <rect x="200" y="120" width="400" height="380" fill="#0d5ba6" rx="8" opacity="0.9"/>
+  <rect x="220" y="100" width="360" height="30" fill="#1a6fc4" rx="4"/>
+  <!-- Company sign -->
+  <rect x="280" y="140" width="240" height="40" fill="white" rx="4" opacity="0.9"/>
+  <text x="400" y="167" text-anchor="middle" fill="#0d5ba6" font-size="18" font-weight="bold" font-family="sans-serif">月恒净化工程</text>
+  <!-- Windows grid -->
+  <rect x="240" y="200" width="50" height="40" fill="#7ec8f0" opacity="0.7" rx="2"/>
+  <rect x="310" y="200" width="50" height="40" fill="#4da8e8" opacity="0.5" rx="2"/>
+  <rect x="380" y="200" width="50" height="40" fill="#7ec8f0" opacity="0.6" rx="2"/>
+  <rect x="450" y="200" width="50" height="40" fill="#4da8e8" opacity="0.7" rx="2"/>
+  <rect x="520" y="200" width="50" height="40" fill="#7ec8f0" opacity="0.5" rx="2"/>
+  <rect x="240" y="260" width="50" height="40" fill="#4da8e8" opacity="0.6" rx="2"/>
+  <rect x="310" y="260" width="50" height="40" fill="#7ec8f0" opacity="0.7" rx="2"/>
+  <rect x="380" y="260" width="50" height="40" fill="#4da8e8" opacity="0.4" rx="2"/>
+  <rect x="450" y="260" width="50" height="40" fill="#7ec8f0" opacity="0.6" rx="2"/>
+  <rect x="520" y="260" width="50" height="40" fill="#4da8e8" opacity="0.7" rx="2"/>
+  <rect x="240" y="320" width="50" height="40" fill="#7ec8f0" opacity="0.5" rx="2"/>
+  <rect x="310" y="320" width="50" height="40" fill="#4da8e8" opacity="0.6" rx="2"/>
+  <rect x="380" y="320" width="50" height="40" fill="#7ec8f0" opacity="0.7" rx="2"/>
+  <rect x="450" y="320" width="50" height="40" fill="#4da8e8" opacity="0.5" rx="2"/>
+  <rect x="520" y="320" width="50" height="40" fill="#7ec8f0" opacity="0.6" rx="2"/>
+  <!-- Door -->
+  <rect x="360" y="400" width="80" height="100" fill="#1a6fc4" rx="4"/>
+  <rect x="370" y="410" width="25" height="80" fill="#7ec8f0" opacity="0.4" rx="2"/>
+  <rect x="405" y="410" width="25" height="80" fill="#7ec8f0" opacity="0.4" rx="2"/>
+  <!-- Ground -->
+  <rect x="0" y="500" width="800" height="100" fill="#c8d8e8" rx="0"/>
+  <!-- Trees -->
+  <circle cx="140" cy="430" r="40" fill="#2a7a4a" opacity="0.6"/>
+  <rect x="135" y="460" width="10" height="40" fill="#5a4a3a" opacity="0.5"/>
+  <circle cx="660" cy="430" r="40" fill="#2a7a4a" opacity="0.6"/>
+  <rect x="655" y="460" width="10" height="40" fill="#5a4a3a" opacity="0.5"/>
+  <!-- Path -->
+  <rect x="350" y="500" width="100" height="100" fill="#b0c4d8"/>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b3a5c"/>
+      <stop offset="100%" stop-color="#2a5caa"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg)"/>
+  <!-- Hospital/Pharma building -->
+  <rect x="150" y="100" width="300" height="200" fill="white" opacity="0.15" rx="4"/>
+  <!-- Cross symbol -->
+  <rect x="275" y="130" width="50" height="14" fill="white" opacity="0.4" rx="2"/>
+  <rect x="293" y="115" width="14" height="44" fill="white" opacity="0.4" rx="2"/>
+  <!-- Pill capsule -->
+  <rect x="200" y="195" width="60" height="25" fill="white" opacity="0.3" rx="12"/>
+  <rect x="230" y="195" width="30" height="25" fill="#7ec8f0" opacity="0.4" rx="0 12 12 0"/>
+  <!-- Medicine bottle -->
+  <rect x="350" y="180" width="40" height="55" fill="white" opacity="0.25" rx="4"/>
+  <rect x="355" y="175" width="30" height="10" fill="white" opacity="0.3" rx="2"/>
+  <rect x="360" y="200" width="20" height="8" fill="#7ec8f0" opacity="0.3" rx="1"/>
+  <rect x="360" y="215" width="20" height="8" fill="#7ec8f0" opacity="0.3" rx="1"/>
+  <!-- Title -->
+  <text x="300" y="340" text-anchor="middle" fill="white" font-size="32" font-weight="bold" font-family="sans-serif">医药工程</text>
+  <text x="300" y="370" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif" opacity="0.7" letter-spacing="2">MEDICAL ENGINEERING</text>
+</svg>

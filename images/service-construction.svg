@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e4edf7"/>
+      <stop offset="100%" stop-color="#d0e0f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg)"/>
+  <!-- Clean room structure -->
+  <rect x="100" y="80" width="400" height="300" fill="#e8eff7" stroke="#0d5ba6" stroke-width="2" rx="4"/>
+  <!-- Ceiling panels -->
+  <rect x="100" y="80" width="400" height="30" fill="#0d5ba6" opacity="0.15"/>
+  <line x1="200" y1="80" x2="200" y2="110" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="300" y1="80" x2="300" y2="110" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <line x1="400" y1="80" x2="400" y2="110" stroke="#0d5ba6" stroke-width="1" opacity="0.3"/>
+  <!-- FFU units on ceiling -->
+  <rect x="130" y="85" width="40" height="20" fill="#0d5ba6" opacity="0.3" rx="2"/>
+  <rect x="230" y="85" width="40" height="20" fill="#0d5ba6" opacity="0.3" rx="2"/>
+  <rect x="330" y="85" width="40" height="20" fill="#0d5ba6" opacity="0.3" rx="2"/>
+  <rect x="430" y="85" width="40" height="20" fill="#0d5ba6" opacity="0.3" rx="2"/>
+  <!-- Floor -->
+  <rect x="100" y="360" width="400" height="20" fill="#b8c8d8" rx="2"/>
+  <!-- Workers -->
+  <circle cx="230" cy="240" r="15" fill="#0d5ba6" opacity="0.4"/>
+  <rect x="218" y="255" width="24" height="40" fill="#0d5ba6" opacity="0.3" rx="6"/>
+  <rect x="215" y="295" width="30" height="65" fill="white" opacity="0.6" rx="3"/>
+  <circle cx="380" cy="240" r="15" fill="#0d5ba6" opacity="0.4"/>
+  <rect x="368" y="255" width="24" height="40" fill="#0d5ba6" opacity="0.3" rx="6"/>
+  <rect x="365" y="295" width="30" height="65" fill="white" opacity="0.6" rx="3"/>
+  <!-- Work bench -->
+  <rect x="280" y="310" width="80" height="8" fill="#8B7355" rx="1"/>
+  <rect x="290" y="318" width="8" height="42" fill="#8B7355" rx="1"/>
+  <rect x="342" y="318" width="8" height="42" fill="#8B7355" rx="1"/>
+  <!-- Airflow arrows down -->
+  <path d="M150,115 L150,140" stroke="#4da8e8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <path d="M250,115 L250,140" stroke="#4da8e8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <path d="M350,115 L350,140" stroke="#4da8e8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <path d="M450,115 L450,140" stroke="#4da8e8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <!-- Label -->
+  <text x="300" y="420" text-anchor="middle" fill="#0d5ba6" font-size="16" font-weight="bold" font-family="sans-serif" opacity="0.6">净化施工现场</text>
+</svg>

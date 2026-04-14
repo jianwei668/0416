@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#f8fafc"/>
+  <!-- Hood body -->
+  <rect x="120" y="100" width="260" height="60" fill="#d0dce8" stroke="#8B9BB0" stroke-width="2" rx="4"/>
+  <!-- FFU top unit -->
+  <rect x="140" y="70" width="220" height="35" fill="#0d5ba6" opacity="0.3" rx="4"/>
+  <text x="250" y="93" text-anchor="middle" fill="#0d5ba6" font-size="12" font-family="sans-serif" opacity="0.6">FFU</text>
+  <!-- Filter grid (HEPA) -->
+  <rect x="140" y="160" width="220" height="20" fill="#e8eff7" stroke="#8B9BB0" stroke-width="1" rx="2"/>
+  <line x1="170" y1="160" x2="170" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="200" y1="160" x2="200" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="230" y1="160" x2="230" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="260" y1="160" x2="260" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="290" y1="160" x2="290" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="320" y1="160" x2="320" y2="180" stroke="#8B9BB0" stroke-width="0.5" opacity="0.5"/>
+  <!-- Airflow down arrows -->
+  <path d="M180,185 L180,260 M172,248 L180,265 L188,248" stroke="#4da8e8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M250,185 L250,260 M242,248 L250,265 L258,248" stroke="#4da8e8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M320,185 L320,260 M312,248 L320,265 L328,248" stroke="#4da8e8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <!-- Transparent curtain sides -->
+  <rect x="120" y="160" width="3" height="160" fill="#7ec8f0" opacity="0.4"/>
+  <rect x="377" y="160" width="3" height="160" fill="#7ec8f0" opacity="0.4"/>
+  <!-- Work surface -->
+  <rect x="130" y="320" width="240" height="10" fill="#d0dce8" stroke="#8B9BB0" stroke-width="1" rx="2"/>
+  <!-- Legs -->
+  <rect x="150" y="330" width="8" height="50" fill="#8B9BB0" rx="1"/>
+  <rect x="342" y="330" width="8" height="50" fill="#8B9BB0" rx="1"/>
+  <!-- Class label -->
+  <rect x="180" y="110" width="140" height="30" fill="#0d5ba6" opacity="0.15" rx="3"/>
+  <text x="250" y="130" text-anchor="middle" fill="#0d5ba6" font-size="14" font-weight="bold" font-family="sans-serif">CLASS 100</text>
+  <!-- Label -->
+  <text x="250" y="430" text-anchor="middle" fill="#0d5ba6" font-size="18" font-weight="bold" font-family="sans-serif">百级净化罩</text>
+</svg>
