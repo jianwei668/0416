@@ -1491,6 +1491,129 @@ footer .w-28.h-28:hover {
     z-index: 0;
 }
 
+/* ========== Mobile Optimizations ========== */
+
+/* Disable cursor glow on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    #cursor-glow {
+        display: none !important;
+    }
+}
+
+/* Fix background-attachment: fixed on iOS (crashes/broken) */
+@supports (-webkit-touch-callout: none) {
+    #about, #products, #cases {
+        background-attachment: scroll !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Disable parallax on mobile — not supported on iOS */
+    #about, #products, #cases {
+        background-attachment: scroll !important;
+    }
+
+    /* Simplify hero carousel animations for mobile performance */
+    .hero-slide {
+        will-change: opacity;
+    }
+
+    .hero-slide.active {
+        animation: slideEnterMobile 1.2s ease forwards,
+                   kenBurnsDriftMobile 20s ease-in-out 1.5s infinite alternate;
+    }
+
+    .hero-slide.leaving {
+        animation: slideLeaveMobile 1s ease forwards;
+    }
+
+    /* CTA button — fallback for @property not supported */
+    .cta-hero-border {
+        background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.4),
+            rgba(126, 200, 240, 0.3),
+            rgba(42, 92, 170, 0.5)) !important;
+        animation: none !important;
+    }
+
+    /* Reduce backdrop-filter intensity for performance */
+    .cta-hero-bg {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    /* Stats bar — ensure readable on small screens */
+    .stats-number {
+        font-size: 2.5rem !important;
+        line-height: 1.1;
+    }
+
+    /* Premium headings — ensure gradient text renders */
+    .premium-heading,
+    .premium-heading-light {
+        word-break: keep-all;
+    }
+
+    /* Nav scroll state glass blur — lighter on mobile */
+    nav.scrolled {
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    /* Mobile menu — use dvh for iOS address bar */
+    #mobile-menu {
+        height: 100dvh;
+        height: -webkit-fill-available;
+    }
+
+    /* Increase tap target sizes */
+    #back-to-top {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Hero content spacing on small screens */
+    .hero-content {
+        padding-top: 6rem;
+    }
+
+    /* Simpler film grain on mobile — reduce overhead */
+    #hero-carousel::after {
+        opacity: 0.015 !important;
+    }
+}
+
+/* Simplified mobile-only keyframes */
+@keyframes slideEnterMobile {
+    0%   { opacity: 0; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slideLeaveMobile {
+    0%   { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.98); }
+}
+@keyframes kenBurnsDriftMobile {
+    0%   { transform: scale(1)    translate3d(0, 0, 0); }
+    100% { transform: scale(1.02) translate3d(-0.3%, -0.2%, 0); }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .hero-slide.active {
+        animation: none !important;
+        opacity: 1;
+    }
+    .hero-slide.leaving {
+        animation: none !important;
+        opacity: 0;
+    }
+}
+
 #cases::before {
     content: '';
     position: absolute;

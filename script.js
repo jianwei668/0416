@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 // ========== Global Cursor Glow ==========
 (function() {
     const glow = document.getElementById('cursor-glow');
-    if (!glow || window.innerWidth < 768) return;
+    if (!glow || window.innerWidth < 768 || 'ontouchstart' in window) return;
     let mx = 0, my = 0, gx = 0, gy = 0;
 
     document.addEventListener('mousemove', (e) => {
@@ -395,6 +395,24 @@ renderProducts();
         goToSlide(newIndex);
         resetCarousel();
     };
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        heroSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                window.changeSlide(diff > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+    }
 
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
