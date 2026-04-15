@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@500;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@500;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -201,23 +201,23 @@
     <!-- ==================== STATS BAR ==================== -->
     <section class="relative z-20 -mt-12 lg:-mt-16">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl p-8 md:p-10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-gray-100 reveal-scale">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-0 text-center">
-                    <div class="py-4 md:border-r md:border-gray-200">
-                        <div class="font-serif font-bold text-4xl md:text-5xl text-brand-copper mb-2" data-counter="500">0+</div>
-                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide">服务客户</div>
+            <div class="glass-stats rounded-3xl p-8 md:p-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] reveal-scale">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
+                    <div class="group">
+                        <div class="font-bold text-3xl md:text-4xl text-[#F37321] mb-2 drop-shadow-sm" style="font-family: 'Cinzel', serif;" data-counter="500">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">服务客户</div>
                     </div>
-                    <div class="py-4 md:border-r md:border-gray-200">
-                        <div class="font-serif font-bold text-4xl md:text-5xl text-brand-copper mb-2" data-counter="200">0+</div>
-                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide">在职员工</div>
+                    <div class="group">
+                        <div class="font-bold text-3xl md:text-4xl text-[#F37321] mb-2 drop-shadow-sm" style="font-family: 'Cinzel', serif;" data-counter="200">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">在职员工</div>
                     </div>
-                    <div class="py-4 md:border-r md:border-gray-200">
-                        <div class="font-serif font-bold text-4xl md:text-5xl text-brand-copper mb-2" data-counter="80">0+</div>
-                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide">产品种类</div>
+                    <div class="group">
+                        <div class="font-bold text-3xl md:text-4xl text-[#F37321] mb-2 drop-shadow-sm" style="font-family: 'Cinzel', serif;" data-counter="80">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">产品种类</div>
                     </div>
-                    <div class="py-4">
-                        <div class="font-serif font-bold text-4xl md:text-5xl text-brand-copper mb-2" data-counter="5">0+</div>
-                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide">创立年限</div>
+                    <div class="group">
+                        <div class="font-bold text-3xl md:text-4xl text-[#F37321] mb-2 drop-shadow-sm" style="font-family: 'Cinzel', serif;" data-counter="5">0+</div>
+                        <div class="text-gray-500 text-sm md:text-base font-medium tracking-wide uppercase">创立年限</div>
                     </div>
                 </div>
             </div>
@@ -244,32 +244,33 @@
 
                 <!-- Left Column -->
                 <div class="w-full lg:w-1/2 reveal-left">
-                    <h3 id="about-company-name" class="font-serif text-2xl lg:text-3xl font-bold mb-6 text-[#0F172A] leading-tight animated-underline">
+                    <h3 id="about-company-name" class="font-display text-2xl lg:text-3xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#0a1e3d] via-[#1B3A5C] to-[#0D5BA6] leading-tight">
                         北京月恒净化工程有限公司
                     </h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-copper to-brand-copper/30 rounded-full mb-5"></div>
 
-                    <p id="about-summary" class="text-gray-600 mb-8 text-base lg:text-lg leading-relaxed">
+                    <p id="about-summary" class="text-gray-600 mb-6 text-base leading-relaxed">
                         北京月恒净化工程有限公司是一家专注于洁净室系统工程的高新技术企业，业务覆盖净化工程设计、施工、调试及净化设备研发与生产。公司致力于为医疗卫生、微电子、食品饮料、生物制药等行业客户提供一站式洁净环境解决方案。
                     </p>
 
-                    <div id="about-values" class="space-y-4">
-                        <div class="flex items-center gap-4 bg-white/80 p-4 rounded-xl border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_28px_rgba(13,91,166,0.1)] hover:-translate-x-1 transition-all duration-400 group">
-                            <span class="w-10 h-10 rounded-lg bg-brand-copper/10 flex items-center justify-center shrink-0 group-hover:bg-brand-copper/15 transition-colors duration-300">
-                                <i class="ph-fill ph-check-circle text-brand-copper text-xl"></i>
+                    <div id="about-values" class="space-y-3">
+                        <div class="about-value-card flex items-center gap-4 bg-gradient-to-r from-white to-[#f8faff] p-4 rounded-xl border border-gray-100/80 shadow-[0_4px_20px_rgba(13,91,166,0.06)] hover:shadow-[0_12px_36px_rgba(13,91,166,0.12)] hover:-translate-y-1 transition-all duration-500 group">
+                            <span class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-blue/10 to-brand-accent/15 flex items-center justify-center shrink-0 group-hover:from-brand-blue/20 group-hover:to-brand-accent/25 transition-all duration-300 shadow-sm">
+                                <i class="ph-fill ph-check-circle text-brand-blue text-xl"></i>
                             </span>
-                            <span class="text-gray-700 text-base font-medium">专业设计与施工团队，经验丰富</span>
+                            <span class="text-gray-700 text-sm lg:text-base font-semibold">专业设计与施工团队，经验丰富</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-white/80 p-4 rounded-xl border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_28px_rgba(13,91,166,0.1)] hover:-translate-x-1 transition-all duration-400 group">
-                            <span class="w-10 h-10 rounded-lg bg-brand-copper/10 flex items-center justify-center shrink-0 group-hover:bg-brand-copper/15 transition-colors duration-300">
-                                <i class="ph-fill ph-shield-check text-brand-copper text-xl"></i>
+                        <div class="about-value-card flex items-center gap-4 bg-gradient-to-r from-white to-[#f8faff] p-4 rounded-xl border border-gray-100/80 shadow-[0_4px_20px_rgba(13,91,166,0.06)] hover:shadow-[0_12px_36px_rgba(13,91,166,0.12)] hover:-translate-y-1 transition-all duration-500 group">
+                            <span class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-blue/10 to-brand-accent/15 flex items-center justify-center shrink-0 group-hover:from-brand-blue/20 group-hover:to-brand-accent/25 transition-all duration-300 shadow-sm">
+                                <i class="ph-fill ph-shield-check text-brand-blue text-xl"></i>
                             </span>
-                            <span class="text-gray-700 text-base font-medium">严格遵循国家净化标准与行业规范</span>
+                            <span class="text-gray-700 text-sm lg:text-base font-semibold">严格遵循国家净化标准与行业规范</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-white/80 p-4 rounded-xl border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_28px_rgba(13,91,166,0.1)] hover:-translate-x-1 transition-all duration-400 group">
-                            <span class="w-10 h-10 rounded-lg bg-brand-copper/10 flex items-center justify-center shrink-0 group-hover:bg-brand-copper/15 transition-colors duration-300">
-                                <i class="ph-fill ph-heart text-brand-copper text-xl"></i>
+                        <div class="about-value-card flex items-center gap-4 bg-gradient-to-r from-white to-[#f8faff] p-4 rounded-xl border border-gray-100/80 shadow-[0_4px_20px_rgba(13,91,166,0.06)] hover:shadow-[0_12px_36px_rgba(13,91,166,0.12)] hover:-translate-y-1 transition-all duration-500 group">
+                            <span class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-blue/10 to-brand-accent/15 flex items-center justify-center shrink-0 group-hover:from-brand-blue/20 group-hover:to-brand-accent/25 transition-all duration-300 shadow-sm">
+                                <i class="ph-fill ph-heart text-brand-blue text-xl"></i>
                             </span>
-                            <span class="text-gray-700 text-base font-medium">全生命周期服务，从规划到运维</span>
+                            <span class="text-gray-700 text-sm lg:text-base font-semibold">全生命周期服务，从规划到运维</span>
                         </div>
                     </div>
                 </div>
@@ -362,18 +363,23 @@
             <div class="flex flex-col lg:flex-row gap-8 stagger-children">
                 <!-- Left: Featured Image -->
                 <div class="w-full lg:w-1/2">
-                    <div class="bg-white rounded-2xl overflow-hidden h-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-white/30 hover:shadow-[0_16px_48px_rgba(13,91,166,0.1)] transition-shadow duration-500">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-white/30 hover:shadow-[0_16px_48px_rgba(13,91,166,0.1)] transition-shadow duration-500">
                         <div class="w-full aspect-[4/3] bg-gradient-to-br from-[#EEF3F9] to-[#E4EDF7] flex items-center justify-center relative overflow-hidden">
                             <img src="https://images.pexels.com/photos/9574511/pexels-photo-9574511.jpeg?auto=compress&cs=tinysrgb&w=800" alt="新闻配图" class="w-full h-full object-cover">
                         </div>
-                        <div class="p-7">
-                            <p class="text-gray-600 text-sm leading-relaxed">北京月恒净化工程有限公司致力于为客户提供最新的行业动态与企业资讯，关注净化工程领域前沿技术与发展趋势。</p>
+                        <div class="p-5">
+                            <div class="flex flex-wrap gap-3 justify-center">
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold bg-brand-blue/10 text-brand-blue border border-brand-blue/15">行业前沿</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold bg-brand-copper/10 text-brand-copper border border-brand-copper/15">企业资讯</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold bg-brand-navy/10 text-brand-navy border border-brand-navy/15">技术动态</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold bg-brand-blue/10 text-brand-blue border border-brand-blue/15">净化工程</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Right: News List -->
                 <div class="w-full lg:w-1/2">
-                    <div id="insights-grid" class="space-y-4">
+                    <div id="insights-grid" class="flex flex-col gap-4">
                         <!-- JS fills news cards -->
                     </div>
                 </div>

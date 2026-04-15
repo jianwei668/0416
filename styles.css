@@ -377,6 +377,54 @@ nav a.active-link .nav-underline {
     box-shadow: 0 0 10px rgba(42, 92, 170, 0.6);
 }
 
+/* ========== Glass Stats Bar ========== */
+.glass-stats {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18) 40%, rgba(255, 255, 255, 0.08) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        0 24px 55px -22px rgba(15, 23, 42, 0.28),
+        0 12px 24px rgba(255, 255, 255, 0.16) inset,
+        0 -10px 20px rgba(148, 163, 184, 0.08) inset;
+    backdrop-filter: blur(26px) saturate(185%);
+    -webkit-backdrop-filter: blur(26px) saturate(185%);
+}
+
+.glass-stats::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0.04));
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glass-stats::after {
+    content: "";
+    position: absolute;
+    top: -24%;
+    left: -12%;
+    width: 72%;
+    height: 52%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.28) 42%, transparent 72%);
+    opacity: 0.75;
+    transform: rotate(-10deg);
+    filter: blur(12px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glass-stats > * {
+    position: relative;
+    z-index: 1;
+}
+
 /* ========== Premium Section Headings ========== */
 .font-display {
     text-rendering: optimizeLegibility;
@@ -402,9 +450,10 @@ nav a.active-link .nav-underline {
 .premium-heading-light::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -14px;
+    width: 150px;
     height: 3px;
     background: linear-gradient(90deg, #C4975A, #e8c88a, #C4975A);
     border-radius: 2px;
@@ -424,9 +473,10 @@ nav a.active-link .nav-underline {
 .premium-heading::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -14px;
+    width: 150px;
     height: 3px;
     background: linear-gradient(90deg, #C4975A, #e8c88a, #C4975A);
     border-radius: 2px;
@@ -1542,10 +1592,10 @@ footer .w-28.h-28:hover {
         -webkit-backdrop-filter: blur(8px) !important;
     }
 
-    /* Stats bar — ensure readable on small screens */
-    .stats-number {
-        font-size: 2.5rem !important;
-        line-height: 1.1;
+    /* Glass stats — reduce blur on mobile */
+    .glass-stats {
+        backdrop-filter: blur(16px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
     }
 
     /* Premium headings — ensure gradient text renders */

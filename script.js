@@ -291,7 +291,7 @@ function renderInsights() {
     if (!grid) return;
     grid.innerHTML = siteContent.insights.map(n => `
         <a href="#" class="news-card flex flex-col md:flex-row items-start md:items-center p-6 group transition-all duration-500 rounded-2xl hover:-translate-y-1 bg-white/95 backdrop-blur-md border border-white/30 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)]">
-            <div class="text-brand-blue w-36 md:w-44 shrink-0 font-bold font-serif text-lg tracking-wide">${n.date}</div>
+            <div class="w-36 md:w-44 shrink-0 font-bold tracking-wide" style="font-family: 'Cinzel', serif; color: #C4975A; font-size: 22px;">${n.date}</div>
             <div class="flex-grow mt-2 md:mt-0">
                 <h3 class="text-lg font-semibold text-[#0F172A] group-hover:text-brand-blue transition-colors">${n.title}</h3>
             </div>
@@ -304,8 +304,8 @@ function renderProducts() {
     if (!grid) return;
     grid.innerHTML = siteContent.products.map(p => `
         <div class="card-level-2 group">
-            <div class="w-full aspect-square overflow-hidden bg-white flex items-center justify-center p-4">
-                <img src="${p.img}" alt="${p.title}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            <div class="w-full aspect-[4/3] overflow-hidden bg-white">
+                <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'flex items-center justify-center w-full h-full\\'><i class=\\'${p.icon} text-5xl text-brand-blue/40\\'></i></div>';">
             </div>
             <div class="p-6 text-center">
